@@ -1,0 +1,29 @@
+[
+    {
+      "outputFileName": "wwwroot/bundle/site.min.css",
+      "inputFiles": [
+        "wwwroot/lib/bootstrap/bootstrap.min.css",
+        "wwwroot/lib/bootstrap-datepicker/bootstrap-datepicker.min.css",
+        "wwwroot/lib/bootstrap-select/bootstrap-select.css",
+        "wwwroot/css/custom.css"
+      ]
+    },
+    {
+      "outputFileName": "wwwroot/bundle/site.min.js",
+      "inputFiles": [
+        "wwwroot/lib/jquery/jquery.min.js",
+        "wwwroot/lib/moment/moment.min.js",
+        "wwwroot/lib/bootstrap/bootstrap.min.js",
+        "wwwroot/lib/bootstrap-datepicker/bootstrap-datepicker.min.js",
+        "wwwroot/lib/bootstrap-datepicker/bootstrap-datepicker.hr.min.js",
+        "wwwroot/lib/bootstrap-select/bootstrap-select.min.js",
+        "wwwroot/lib/bootstrap-select/defaults-cro_CRO.min.js",
+        "wwwroot/js/custom.js"
+      ],
+      "minify": {
+        "enabled": true,
+        "renameLocals": true
+      },
+      "sourceMap": false
+    }
+  ]

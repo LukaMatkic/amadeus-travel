@@ -1,0 +1,149 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@* Naslov stranice *@
+<div class="jumbotron" style="margin-top: 10px;">
+    <h1 class="text-center">Tražilica letova...</h1>
+    <p class="text-center">Pretraži tisuće najjeftinijih letova, u samo par klikova, sa jednog mjesta !</p>
+    <p class="text-center">
+        <button id="btnSearchNow" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span>
+            Pretraži odmah
+        </button>
+    </p>
+</div>
+
+
+@* Inputi *@
+<div>
+    <div class="row" style="margin-top: 50px;">
+
+        @* Polazni i odredišni aerodrom *@
+        <div class="col-sm-12 col-md-3">
+
+            @* Polazišni aerodrom *@
+            <div id="airportDepartmentDiv" class="form-group">
+                <label><i class="text-danger">*</i> Polazišni aerodrom:</label>
+                <select id="airportDepartment" class="form-control selectpicker" data-live-search="true"></select>
+            </div>
+
+            @* Odredišni aerodrom *@
+            <div id="airportArrivalDiv" class="form-group">
+                <label><i class="text-danger">*</i> Odredišni aerodrom:</label>
+                <select id="airportArrival" class="form-control selectpicker" data-live-search="true"></select>
+            </div>
+
+        </div>
+
+        @* Datum polaska i dolaska *@
+        <div class="col-sm-12 col-md-3">
+
+            @* Polazak *@
+            <div class="form-group">
+                <label><i class="text-danger">*</i> Datum polaska:</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="dateDeparture" />
+                </div>
+            </div>
+
+            @* Dolazak *@
+            <div class="form-group">
+                <label><i class="text-danger">*</i> Datum dolaska:</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="dateArrival" />
+                </div>
+            </div>
+
+        </div>
+
+        @* Broj putnika i valuta *@
+        <div class="col-sm-12 col-md-3">
+
+            @* Broj putnika *@
+            <div class="form-group">
+                <label><i class="text-danger">*</i> Broj putnika:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    <input id="personNum" type="number" class="form-control pull-right" />
+                </div>
+            </div>
+
+            @* Valuta *@
+            <div class="form-group">
+                <label><i class="text-danger">*</i> Valuta:</label>
+                <select class="form-control selectpicker" id="travelCurrency">
+                    <option value="HRK">HRK</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                </select>
+            </div>
+
+        </div>
+
+        @* Gumb za traženje *@
+        <div class="col-sm-12 col-md-3">
+
+            <button id="btnSearch" class="btn btn-primary btn-lg form-control" style="margin-top: 24px; height: 110px;">
+                <span class="glyphicon glyphicon-search"></span>
+                <br />
+                Pretraži
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+@* Div za prikaz rezultata *@
+<div>
+
+    @* Dio za prikaz loadera *@
+    <div id="loader-panel" class="panel panel-default" style="margin-top: 50px; display: none;">
+        <div class="panel-body" style="text-align:center; padding: 50px;">
+            <div class="loader" style="margin: auto;"></div>
+            <p style="margin-top: 20px;">Pretražujem letove...</p>
+        </div>
+    </div>
+
+    @* Dio za prikaz da nema rezultata pretraživanja *@
+    <div id="noresult-panel" class="panel panel-default" style="margin-top: 50px; display: none;">
+        <div class="panel-body" style="text-align:center; padding: 50px;">
+            <img src="~/images/empty-96.png" />
+            <p style="margin-top: 10px;">Nema rezultata pretraživanja sa traženim parametrima...</p>
+        </div>
+    </div>
+
+    @* Dio za prikaz podataka u tablici *@
+    <div id="table-panel" class="panel panel-default" style="margin-top: 50px; display: none;">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">RBR</th>
+                        <th></th>
+                        <th>IATA Aerodrom</th>
+                        <th>Datum i vrijeme</th>
+                        <th class="text-center">Broj presjedanja</th>
+                        <th class="text-center">Broj slobodnih mjesta</th>
+                        <th>Ukupna cijena</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+
